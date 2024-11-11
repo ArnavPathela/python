@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}Registration Page{% endblock %}
+
+{% block content %}
+<div class="container mt-3">
+    <h2>Registration</h2>
+    <form action="{{ url_for('register') }}" method="POST" enctype="multipart/form-data"> 
+        <div class="mb-3">
+            <label for="exampleInputEmail" class="form-label">Email</label>
+            <input name="email" type="text" class="form-control" id="exampleInputEmail" required>
+        </div>
+        <div class="mb-3 mt-3">
+            <label for="exampleInputPassword" class="form-label">Password</label>
+            <input name="password" type="password" class="form-control" id="exampleInputPassword" required>
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    
+</div>
+{% endblock %}

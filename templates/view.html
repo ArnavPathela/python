@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center">Your Journal Entries</h1>
+    <table class="table table-striped mt-4">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Content</th>
+                <th>Date Created</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for journal in journals %}
+            <tr>
+                <td>{{ journal.title }}</td>
+                <td>{{ journal.content }}</td>
+                <td>{{ journal.created.strftime('%Y-%m-%d %H:%M:%S') }}</td>  <!-- Format as needed -->
+                <td>
+                    <form action="{{ url_for('delete', id=journal.id) }}" method="post" style="display:inline;">
+                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
+
